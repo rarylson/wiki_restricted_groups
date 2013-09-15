@@ -21,20 +21,20 @@ Install
 
 Download this plugin in the MediaWiki **extensions** directory.
 
-  cd MEDIA_WIKI_ROOT/extensions
-  git clone https://github.com/rarylson/wiki_restricted_groups.git
-  mv wiki_restricted_groups restricted_groups
+    cd MEDIA_WIKI_ROOT/extensions
+    git clone https://github.com/rarylson/wiki_restricted_groups.git
+    mv wiki_restricted_groups restricted_groups
 
 Create the config file:
 
-  cd MEDIA_WIKI_ROOT/extensions/restricted_groups
-  cp restricted_groups.conf.php.sample restricted_groups.conf.php
+    cd MEDIA_WIKI_ROOT/extensions/restricted_groups
+    cp restricted_groups.conf.php.sample restricted_groups.conf.php
 
 Add these lines to **LocalSettings.php**:
 
-  # rectricted groups plugin
-  # See: https://github.com/rarylson/wiki_restricted_groups
-  require_once "$IP/extensions/restricted_groups/restricted_groups.php";
+    # rectricted groups plugin
+    # See: https://github.com/rarylson/wiki_restricted_groups
+    require_once "$IP/extensions/restricted_groups/restricted_groups.php";
 
 
 How to

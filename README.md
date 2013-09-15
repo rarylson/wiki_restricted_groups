@@ -49,19 +49,19 @@ Edit the **restricted\_groups.conf.php** file with your restricted groups and al
     $wgVlkRestrictGroupRules['receptionist'] = array( 'Utils', 'Receptionist' );
     $wgVlkRestrictGroupRules['client1'] = array( 'Client1' );
 
-Add some users to one of these groups. For example, the 'Client1user' to the 'client1' group.
+Add some users to one of these groups. For example, the **Client1user** to the **client1** group.
 
-Finally, add some page to 'Client1' category. You can do it adding this line in the page source code:
+Finally, add some page to **Client1** category. You can do it adding this line in the page source code:
 
     [[Category:Client1]]
 
-Now, 'Client1user' can read only some [single pages]() and the pages with `[[Category:Client1]]`.
+Now, **Client1user** can read only some [single pages]() and the pages with `[[Category:Client1]]`.
 
 
 Security
 --------
 
-Supose a restricted group that can access the 'EXAMPLE' category. Only these pages can be read by the restricted group:
+Supose a restricted group that can access the **EXAMPLE** category. Only these pages can be read by the restricted group:
 
 - **Special:Userlogin:** The login page;
 - **Special:Userlogout:** Permit user logout;
@@ -69,11 +69,11 @@ Supose a restricted group that can access the 'EXAMPLE' category. Only these pag
 - **Category:EXAMPLE:** The main page of the category EXAMPLE. The user can see all pages that belong to this category here;
 - **Pages in EXAMPLE category:** Pages with `[[Category:EXAMPLE]]` in your source code.
 
-In these pages, only the 'read' privilege is allowed. All others privileges are revoked (like 'edit' or 'delete').
+In these pages, only the **read** privilege is allowed. All others privileges are revoked (like **edit** or **delete**).
 
 This user can read a lot of static content. The restrictions are applied only to pages.
 
-Because only the 'read' priv is granted, there won't be problems with the [most common security problems](http://www.mediawiki.org/wiki/Security_issues_with_authorization_extensions) with MediaWiki authorization extensions.
+Because only the **read** priv is granted, there won't be problems with the [most common security problems](http://www.mediawiki.org/wiki/Security_issues_with_authorization_extensions) with MediaWiki authorization extensions.
 
 
 License
@@ -85,7 +85,7 @@ We use the [BSD 2 Clauses License](LICENSE). You're free to use this extension a
 TODO
 ----
 
-- Add suport to allow the 'Main Page'
+- Add suport to allow the **Main Page**
 - Restrict image and other static content access
-- Allow 'change password' page
+- Allow **Change Password** page
 

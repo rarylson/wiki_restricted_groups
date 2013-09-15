@@ -21,9 +21,11 @@ Install
 
 Download this plugin in the MediaWiki **extensions** directory.
 
-    cd MEDIA_WIKI_ROOT/extensions
-    git clone https://github.com/rarylson/wiki_restricted_groups.git
-    mv wiki_restricted_groups restricted_groups
+```bash
+cd MEDIA_WIKI_ROOT/extensions
+git clone https://github.com/rarylson/wiki_restricted_groups.git
+mv wiki_restricted_groups restricted_groups
+```
 
 Create the config file:
 
@@ -32,10 +34,11 @@ Create the config file:
 
 Add these lines to **LocalSettings.php**:
 
-    # rectricted groups plugin
-    # See: https://github.com/rarylson/wiki_restricted_groups
-    require_once "$IP/extensions/restricted_groups/restricted_groups.php";
-
+```php
+# rectricted groups plugin
+# See: https://github.com/rarylson/wiki_restricted_groups
+require_once "$IP/extensions/restricted_groups/restricted_groups.php";
+```
 
 How to
 ------

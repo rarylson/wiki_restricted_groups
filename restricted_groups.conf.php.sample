@@ -1,9 +1,9 @@
 <?php
 
 // Array with restricted groups
-$wgVlkRestrictGroup = ['group1'];
+$wgVlkRestrictGroup = array( 'group1' );
 
 // Array with group/categories restrictions
-$wgVlkRestrictGroupRules['group1'] = ['category1'];
+$wgVlkRestrictGroupRules['group1'] = array( 'category1' );
 
 ?>

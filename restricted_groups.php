@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . "restricted_groups.conf.php";
+require_once dirname(__FILE__) . "/restricted_groups.conf.php";
 
 /**
  * Creating a restricted group with only read priv
@@ -13,7 +13,7 @@ function vlk_restrictgroup_creating($name) {
     global $wgRevokePermissions;
 
     // See: http://www.mediawiki.org/wiki/Manual:User_rights#List_of_permissions
-    $all_privs_except_read = [ 'edit', 'createpage', 'createtalk', 'move', 'movefile', 'move', 
+    $all_privs_except_read = array( 'edit', 'createpage', 'createtalk', 'move', 'movefile', 'move', 
             'move', 'createaccount', 'upload', 'reupload', 'reupload', 'reupload', 
             'upload_by_url', 'editprotected', 'delete', 'bigdelete', 'deletedhistory', 
             'deletedtext', 'undelete', 'browsearchive', 'mergehistory', 'protect', 'block', 
@@ -22,7 +22,7 @@ function vlk_restrictgroup_creating($name) {
             'suppressrevision', 'deleterevision', 'siteadmin', 'import', 'importupload', 'trackback', 
             'unwatchedpages', 'bot', 'purge', 'minoredit', 'nominornewtalk', 'noratelimit', 
             'ipblock', 'proxyunbannable', 'autopatrol', 'apihighlimits', 'writeapi', 
-            'suppressredirect', 'autoconfirmed', 'emailconfirmed' ];
+            'suppressredirect', 'autoconfirmed', 'emailconfirmed' );
 
     // Setting all permissions to false, except 'read'
     foreach ($all_privs_except_read as $priv) {

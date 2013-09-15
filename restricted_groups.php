@@ -170,7 +170,6 @@ function vlk_restrictgroup_run() {
     global $wgHooks;
     // Groups in config file
     global $wgVlkRestrictGroup;
-    global $wgVlkRestrictGroupRules;
 
     // Creating groups with correct permissions
     foreach ($wgVlkRestrictGroup as $name) {

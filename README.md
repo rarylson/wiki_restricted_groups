@@ -21,7 +21,7 @@ Install
 
 Download this plugin in the MediaWiki **extensions** directory.
 
-```bash
+```sh
 cd MEDIA_WIKI_ROOT/extensions
 git clone https://github.com/rarylson/wiki_restricted_groups.git
 mv wiki_restricted_groups restricted_groups

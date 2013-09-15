@@ -55,7 +55,7 @@ Finally, add some page to **Client1** category. You can do it adding this line i
 
     [[Category:Client1]]
 
-Now, **Client1user** can read only some [single pages]() and the pages with `[[Category:Client1]]`.
+Now, **Client1user** can read only some [single pages](#security) and the pages with `[[Category:Client1]]`.
 
 
 Security

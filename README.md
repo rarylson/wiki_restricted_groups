@@ -21,7 +21,7 @@ Install
 
 Download this plugin in the MediaWiki **extensions** directory.
 
-```sh
+```bash
 cd MEDIA_WIKI_ROOT/extensions
 git clone https://github.com/rarylson/wiki_restricted_groups.git
 mv wiki_restricted_groups restricted_groups
@@ -29,8 +29,10 @@ mv wiki_restricted_groups restricted_groups
 
 Create the config file:
 
-    cd MEDIA_WIKI_ROOT/extensions/restricted_groups
-    cp restricted_groups.conf.php.sample restricted_groups.conf.php
+```bash
+cd MEDIA_WIKI_ROOT/extensions/restricted_groups
+cp restricted_groups.conf.php.sample restricted_groups.conf.php
+```
 
 Add these lines to **LocalSettings.php**:
 
@@ -45,18 +47,22 @@ How to
 
 Edit the **restricted\_groups.conf.php** file with your restricted groups and allowed categories:
 
-    // Array with restricted groups
-    $wgVlkRestrictGroup = array( 'receptionist', 'client1' );
+```php
+// Array with restricted groups
+$wgVlkRestrictGroup = array( 'receptionist', 'client1' );
 
-    // Array with group/categories restrictions
-    $wgVlkRestrictGroupRules['receptionist'] = array( 'Utils', 'Receptionist' );
-    $wgVlkRestrictGroupRules['client1'] = array( 'Client1' );
+// Array with group/categories restrictions
+$wgVlkRestrictGroupRules['receptionist'] = array( 'Utils', 'Receptionist' );
+$wgVlkRestrictGroupRules['client1'] = array( 'Client1' );
+```
 
 Add some users to one of these groups. For example, the **Client1user** to the **client1** group.
 
 Finally, add some page to **Client1** category. You can do it adding this line in the page source code:
 
-    [[Category:Client1]]
+```
+[[Category:Client1]]
+```
 
 Now, **Client1user** can read only some [single pages](#security) and the pages with `[[Category:Client1]]`.
 

@@ -11,25 +11,16 @@ require_once dirname(__FILE__) . "/restricted_groups.conf.php";
 function vlk_restrictgroup_creating($name) {
     // See: http://www.mediawiki.org/wiki/Manual:$wgRevokePermissions
     global $wgRevokePermissions;
-
-    // See: http://www.mediawiki.org/wiki/Manual:User_rights#List_of_permissions
-    $all_privs_except_read = array( 'edit', 'createpage', 'createtalk', 'move', 'movefile', 'move',
-            'move', 'createaccount', 'upload', 'reupload', 'reupload', 'reupload',
-            'upload_by_url', 'editprotected', 'delete', 'bigdelete', 'deletedhistory',
-            'deletedtext', 'undelete', 'browsearchive', 'mergehistory', 'protect', 'block',
-            'blockemail', 'hideuser', 'unblockself', 'userrights', 'userrights', 'rollback',
-            'markbotedits', 'patrol', 'editinterface', 'editusercssjs', 'editusercss', 'edituserjs',
-            'suppressrevision', 'deleterevision', 'siteadmin', 'import', 'importupload', 'trackback',
-            'unwatchedpages', 'bot', 'purge', 'minoredit', 'nominornewtalk', 'noratelimit',
-            'ipblock', 'proxyunbannable', 'autopatrol', 'apihighlimits', 'writeapi',
-            'suppressredirect', 'autoconfirmed', 'emailconfirmed' );
-
-    // Setting all permissions to false, except 'read'
-    foreach ($all_privs_except_read as $priv) {
-        $wgRevokePermissions[$name][$priv] = true;
-    }
-    $wgGroupPermissions['read'] = true;
-}
+    global $wgGroupPermissions;
+    
+    // Setting all permissions (given to '*' and 'user' groups) to false, except 'read'
+    $all_keys = array_merge(array_keys($wgGroupPermissions['*']), array_keys($wgGroupPermissions['user']));
+    foreach ($all_keys as $key) {
+        if ($key != 'read' ) {
+            $wgRevokePermissions[$name][$key] = true;
+        }   
+    }   
+}   
 
 /**
  * Add some common pages to Whitelist

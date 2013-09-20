@@ -95,6 +95,5 @@ TODO
 ----
 
 - Add suport to allow the **Main Page**
-- Restrict image and other static content access
 - Allow **Change Password** page
-
+- Smart remoke (today we have a hardcoded remoke priv)

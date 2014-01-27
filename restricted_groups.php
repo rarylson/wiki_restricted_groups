@@ -13,10 +13,15 @@ function vlk_restrictgroup_creating($name) {
     global $wgRevokePermissions;
     global $wgGroupPermissions;
     
-    // Setting all permissions (given to '*' and 'user' groups) to false, except 'read'
+	// Setting all permissions (given to '*' and 'user' groups) to false, except:
+	//   'read', 'editmyprivateinfo', 'viewmyprivateinfo' and 'editmyoptions'
+	// For more permissions see:
+	//   http://www.mediawiki.org/wiki/Manual:User_rights
     $all_keys = array_merge(array_keys($wgGroupPermissions['*']), array_keys($wgGroupPermissions['user']));
+	$allowed_rights = array('read', 'editmyprivateinfo', 'viewmyprivateinfo', 'editmyoptions');
     foreach ($all_keys as $key) {
-        if ($key != 'read' ) {
+        #if ($key != 'read' ) {
+        if (!in_array($key, $allowed_rights)) {
             $wgRevokePermissions[$name][$key] = true;
         }   
     }   
@@ -33,15 +38,19 @@ function vlk_restrictgroup_defaultwhitelist($mainpage = false) {
     global $wgWhitelistRead;
     global $wgContLang;
 
-    // Adding "Special:UserLogin", "Special:UserLogout", "Special:PasswordReset"
+    // Adding "Special:UserLogin", "Special:UserLogout", "Special:PasswordReset", "Special:Preferences"
     // See: http://www.mediawiki.org/wiki/Manual:$wgWhitelistRead#Details
     // Using $wgContLang to get correct page names
     // See: http://www.mediawiki.org/wiki/Manual:$wgContLang
     if (empty($wgWhitelistRead)) {
         $wgWhitelistRead = array();
     }
-    $wgWhitelistRead = array_merge($wgWhitelistRead, array($wgContLang->specialPage('Userlogin'),
-            $wgContLang->specialPage('Userlogout'), $wgContLang->specialPage('PasswordReset')) );
+	$wgWhitelistRead = array_merge($wgWhitelistRead, array(
+		$wgContLang->specialPage('Userlogin'),
+		$wgContLang->specialPage('Userlogout'),
+		$wgContLang->specialPage('PasswordReset'),
+		$wgContLang->specialPage('Preferences')
+	));
     // Use $wfMessage to get correct mainpage name
     // See: http://www.mediawiki.org/wiki/Manual:Messages_API
     if ($mainpage) {
